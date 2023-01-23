@@ -1,0 +1,24 @@
+[features]
+seeds = false
+[programs.localnet]
+msg3_program = "DmNoHc7VCXintCLAskTeK3jDuD9sC5XkBpYAdkSbGg2e"
+
+[programs.devnet]
+msg3_program = "DmNoHc7VCXintCLAskTeK3jDuD9sC5XkBpYAdkSbGg2e"
+
+[programs.testnet]
+msg3_program = "DmNoHc7VCXintCLAskTeK3jDuD9sC5XkBpYAdkSbGg2e"
+
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "testnet"
+wallet = "/home/sleyn/.config/solana/id.json"
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
+
+[test]
+startup_wait = 100000
