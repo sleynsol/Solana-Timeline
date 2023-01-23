@@ -1,0 +1,28 @@
+.splash-screen {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    animation: zoom-in 1s ease-out forwards;
+
+    @keyframes zoom-in {
+        0%{transform: scale(10);}
+        30%{transform: scale(1); opacity: 1;}
+        70%{opacity: 1;}
+        100%{opacity: 0; display: none;}
+    }
+}
+
+ion-tabs {
+
+    //animation: fade-in 2s ease-out forwards;
+
+    @keyframes fade-in {
+        0%{opacity: 0;}
+        50%{opacity: 0;}
+        100%{opacity: 1;}
+        
+    }
+
+}

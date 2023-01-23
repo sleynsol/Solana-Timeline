@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>search</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item class="search-item">
+    <ion-icon name="search"></ion-icon>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <section class="top-categories">
+    <div>Top:</div>
+
+  </section>
+
+
+  <section class="recent-section">
+    <div>Recent:</div>
+    <div class="list">
+      <div *ngFor="let category of categories" class="category-item" (click)="showCategory(category)">
+          <span>{{category.name}}</span>
+          <span class="spacer"></span>
+          <span class="post-count">
+            <ion-icon name="albums-outline"></ion-icon>
+            {{category.postCount}}
+          </span>
+        </div>
+    </div>
+  </section>
+
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button [disabled]="!connected" (click)="createCategory()" color="secondary">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

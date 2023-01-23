@@ -1,0 +1,83 @@
+ion-toolbar {
+    --background: #f2f2f2;
+}
+
+.profile-main {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+
+    .profile-container {
+        height: 100%;
+        display: grid;
+        grid-template-rows: 40% 60%;
+    }
+
+
+    .profile {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        ion-avatar {
+            height: 128px;
+            width: 128px;
+            margin-bottom: 32px;
+        }
+
+        span {
+            padding: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            ion-icon {
+                padding: 0 4px;
+            }
+        }
+    }
+
+    ion-list {
+        overflow-y: scroll;
+    }
+
+}
+
+.no-account {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    span {
+        padding: 8px 0;
+    }
+
+}
+
+.no-posts {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 16px 0;
+    color: darkgray;
+
+    ion-icon {
+        padding: 8px 0;
+        font-size: 1.5rem;
+    }
+}
+
+.connect-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

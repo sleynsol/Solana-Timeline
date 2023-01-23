@@ -1,0 +1,2 @@
+export const PROGRAM_ID: String = "DmNoHc7VCXintCLAskTeK3jDuD9sC5XkBpYAdkSbGg2e"
+export const PROGRAM_POINTER: String = "11111111111111111111111111111111"

@@ -1,0 +1,53 @@
+ion-toolbar {
+    --background: #f2f2f2;
+}
+
+.search-item {
+    padding: 16px;
+    ion-icon {
+        margin-right: 16px;
+    }
+}
+
+
+
+section {
+    padding: 16px;
+
+
+    .list {
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .category-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        outline: 1px solid;
+        margin: 8px;
+        padding: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+    
+        .spacer {
+            flex: 1 1
+        }
+    }
+
+    .post-count {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        ion-icon {
+            padding: 0 4px;
+        }
+    }
+
+}
+
+.recently-section {
+    padding: 16px
+}

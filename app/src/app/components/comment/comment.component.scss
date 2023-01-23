@@ -1,0 +1,42 @@
+ion-card {
+    padding: 16px;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    min-height: 60px;
+    max-width: 560px;
+    background-color: rgb(245, 245, 245);
+  }
+  
+  .header {
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  
+    img {
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  
+    .writer {
+      font-size: 1rem;
+      color: black;
+      padding-bottom: 8px;
+      cursor: pointer;
+    }
+  
+    .text {
+      align-self: flex-start;
+      height: 100%;
+      text-align: start;
+    }
+    
+  }

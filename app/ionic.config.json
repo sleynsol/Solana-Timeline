@@ -1,0 +1,7 @@
+{
+  "name": "msg3-front",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

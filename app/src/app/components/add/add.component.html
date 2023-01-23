@@ -1,0 +1,27 @@
+<ion-header *ngIf="!desktop">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="redirectBack()">
+        <ion-icon name="arrow-back-outline" color="tertiary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<div class="add-container">
+  <div [ngClass]="desktop ? 'add-wrapper-desktop' : 'add-wrapper-mobile'">
+    <h3>Write your message:</h3>
+    <ion-textarea [(ngModel)]="text" placeholder="What is happening..." [disabled]="pending">
+      <span class="characters-left">{{text.length}}/200</span>
+    </ion-textarea>
+    <ion-button size="large" (click)="post()" color="secondary" *ngIf="!pending; else pendingTemplate" [disabled]="text.length > 200">
+      <ion-icon name="send"></ion-icon>
+    </ion-button>
+
+    <ng-template #pendingTemplate>
+      <ion-spinner name="dots"></ion-spinner>
+      <span>Waiting for approval...</span>
+    </ng-template>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-button (click)="redirectBack()">
+        <ion-icon name="arrow-back-outline" color="tertiary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>msg: {{post?.pda.toString().substr(0,8)}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <main>
+    <app-message [post]="post" *ngIf="post" [comments-diabled]="true"></app-message>
+
+    <span class="seperator"></span>
+      
+    <app-comment *ngFor="let comment of comments"[comment]="comment" ></app-comment>
+
+    <div class="write-comment-container">
+      <ion-textarea [(ngModel)]="commentText" placeholder="Say what you wanna say..." [disabled]="pending">
+        <span class="characters-left">{{commentText.length}}/200</span>
+      </ion-textarea>
+      <ion-button (click)="comment()">Comment</ion-button>
+    </div>
+  </main>
+
+</ion-content>

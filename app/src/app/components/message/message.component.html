@@ -1,0 +1,37 @@
+<ion-card>
+
+  <div class="header">
+    <img [src]="getPfp()" (click)="showUser()" height="48" width="48" />
+  </div>
+
+  <div class="content">
+    <div class="writer" (click)="showUser()">{{ post.message.writer.toString().substr(0,8) }}</div>
+    <div class="text">{{ post.message.text }}</div>
+    <div class="footer"></div>
+    <div class="button-footer">
+      <div>
+        <ion-button fill="clear" shape="round" size="small" color="secondary" (click)="like()">
+          <ion-icon [name]="post.liked ? 'heart' : 'heart-outline'"></ion-icon>
+          <span>{{ post.message.likes }}</span>
+        </ion-button>
+      </div>
+      
+      <div>
+        <ion-button fill="clear" shape="round" size="small" color="secondary" (click)="showPost()" [disabled]="commentsDisabled">
+          <ion-icon name="chatbubbles-outline"></ion-icon>
+          <span>{{ post.message.comments }}</span>
+        </ion-button>
+      </div>
+      
+      <div>
+        <ion-button fill="clear" shape="round" size="small" color="secondary" (click)="share()">
+          <ion-icon name="arrow-redo-outline"></ion-icon>
+        </ion-button>
+      </div>
+
+      <span>{{ post.category }}</span>
+    </div>
+  </div>
+
+  
+</ion-card>

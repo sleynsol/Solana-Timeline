@@ -1,0 +1,12 @@
+<ion-card>
+
+  <div class="header">
+    <img [src]="getPfp()" (click)="showUser()" height="48" width="48" />
+  </div>
+
+  <div class="content">
+    <div class="writer" (click)="showUser()">{{ comment.writer.toString().substr(0,8) }}</div>
+    <div class="text">{{ comment.text }}</div>
+  </div>
+  
+</ion-card>

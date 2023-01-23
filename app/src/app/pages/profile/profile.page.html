@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <main class="profile-main">
+    
+    <div class="profile-container" *ngIf="connected && user">
+      <div class="profile">
+        <ion-avatar>
+          <img [src]="getPfp()" height="48" width="48" />
+        </ion-avatar>
+        <span>{{user.pubkey.toString().substr(0, 8)}}</span>
+        <span>
+          <ion-icon name="albums-outline"></ion-icon>
+          {{user.postCount}}
+        </span>
+      </div>
+
+      <ion-list *ngIf="user?.posts?.length > 0; else noPosts">
+        <app-message *ngFor="let post of user.posts" [post]="post"></app-message>
+      </ion-list>
+
+      <ng-template #noPosts>
+        <div class="no-posts">
+          <span>Wow so empty</span>
+          <ion-icon name="sad-outline"></ion-icon>
+        </div>
+
+      </ng-template>
+
+    </div>
+
+    <div *ngIf="!connected" class="connect-button">
+      <ion-button (click)="connectWallet()" color="secondary">Connect</ion-button>
+      <span>Only Phantom wallet.</span>
+    </div>
+
+    <div *ngIf="connected && !user" class="no-account">
+      <span>{{getPubkey().substring(0,8)}}</span>
+      <span>You don't have an account yet!</span>
+      <ion-button (click)="createUserAccount()"  color="secondary">Create Account</ion-button>
+    </div>
+
+  </main>
+
+</ion-content>

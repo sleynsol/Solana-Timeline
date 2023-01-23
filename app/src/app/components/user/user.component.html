@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="redirectBack()">
+        <ion-icon name="arrow-back-outline" color="tertiary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>User</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  
+  <ion-content>
+    <main class="profile-main">
+      
+      <div class="profile-container" *ngIf="user; else loading">
+        <div class="profile">
+          <ion-avatar>
+            <img [src]="getPfp()" height="48" width="48" />
+          </ion-avatar>
+          <span>{{user.pubkey.toString().substr(0, 8)}}</span>
+          <span>
+            <ion-icon name="albums-outline"></ion-icon>
+            {{user.postCount}}
+          </span>
+        </div>
+
+        <ion-list>
+          <app-message *ngFor="let post of user.posts" [post]="post"></app-message>
+        </ion-list>
+      </div>
+
+      <ng-template #loading>
+        <div class="loading">
+          <span>Loading user</span>
+          <ion-spinner name="dots"></ion-spinner>
+        </div>
+      </ng-template>
+
+    </main>
+</ion-content>
+
