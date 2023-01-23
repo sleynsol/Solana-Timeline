@@ -1,0 +1,43 @@
+# PROGRAM
+.anchor
+.DS_Store
+target
+**/*.rs.bk
+node_modules
+test-ledger
+
+# APP
+app/*~
+app/*.sw[mnpcod]
+app/.tmp
+app/*.tmp
+app/*.tmp.*
+app/*.sublime-project
+app/*.sublime-workspace
+app/.DS_Store
+app/Thumbs.db
+app/UserInterfaceState.xcuserstate
+app/$RECYCLE.BIN/
+
+app/*.log
+app/log.txt
+app/npm-debug.log*
+
+app/.angular
+app/.idea
+app/.ionic
+app/.sass-cache
+app/.sourcemaps
+app/.versions
+app/.vscode
+app/coverage
+app/dist
+app/node_modules
+app/platforms
+app/plugins
+app/www
+
+# BACKEND
+backend/node_modules
+backend/package-lock.json
+backend/dist
