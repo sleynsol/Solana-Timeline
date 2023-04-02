@@ -1,10 +1,12 @@
 use anchor_lang::prelude::*;
 
 
-declare_id!("DmNoHc7VCXintCLAskTeK3jDuD9sC5XkBpYAdkSbGg2e");
+declare_id!("pYSi8uuoAZPNNzk76aWax5NscjACtJtSDY9DSGnQtWB");
 
 #[program]
 pub mod msg3_program {
+
+    use anchor_lang::solana_program::log;
 
     use super::*;
 
@@ -67,6 +69,7 @@ pub mod msg3_program {
         user.post_count += 1;
         category.post_count += 1;
         global.global_post_count += 1;
+
 
         Ok(())
     }

@@ -14,7 +14,7 @@ describe("msg3-program", () => {
   anchor.setProvider(provider);
 
   const program = anchor.workspace.Msg3Program as Program<Msg3Program>;
-  const programId = new PublicKey("DmNoHc7VCXintCLAskTeK3jDuD9sC5XkBpYAdkSbGg2e");
+  const programId = new PublicKey("pYSi8uuoAZPNNzk76aWax5NscjACtJtSDY9DSGnQtWB");
 
   it("shall initiailize", async() => {
 
