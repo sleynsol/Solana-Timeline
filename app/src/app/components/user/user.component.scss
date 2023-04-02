@@ -1,6 +1,3 @@
-ion-toolbar {
-    --background: #f2f2f2;
-}
 
 .profile-main {
     height: 100%;
@@ -12,6 +9,7 @@ ion-toolbar {
 
     .profile-container {
         height: 100%;
+        width: 100%;
         display: grid;
         grid-template-rows: 40% 60%;
     }
@@ -44,6 +42,8 @@ ion-toolbar {
 
     ion-list {
         overflow-y: scroll;
+        width: 100%;
+        max-width: 500px;
     }
 
 }

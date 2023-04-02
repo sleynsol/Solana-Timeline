@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { AddComponent } from 'src/app/components/add/add.component';
 import { GlobalStats } from 'src/app/model/GlobalStats';
@@ -16,6 +16,9 @@ export class HomePage {
   stats: GlobalStats;
   keyboardVisible: boolean = false;
   desktop: boolean = false;
+  webSocketConnected: boolean = false;
+
+  @ViewChild("listComp") listRef: ElementRef;
 
   constructor(private web3: Web3Service, private modalCtrl: ModalController) {
 
@@ -23,6 +26,7 @@ export class HomePage {
 
     this.getGlobalStats()
     this.listenToLoadedPosts();
+    this.listenToWebSocketConnection();
   }
 
   getGlobalStats() {
@@ -31,7 +35,20 @@ export class HomePage {
 
   listenToLoadedPosts() {
     this.web3.getPostSubject$().subscribe((posts: Post[]) => {
+
+      if(this.listRef) {
+        //@ts-ignore
+        this.listRef.el.classList.add("bump-in-anim")
+        //@ts-ignore
+        setTimeout(() => {this.listRef.el.classList.remove("bump-in-anim")}, 1000)
+      }
       this.posts = posts;
+    })
+  }
+
+  listenToWebSocketConnection() {
+    this.web3.getWebSocketConnectionSubject$().subscribe((connected: boolean) => {
+      this.webSocketConnected = connected
     })
   }
 

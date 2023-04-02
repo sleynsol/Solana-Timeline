@@ -1,5 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon name="ellipse" style="color: green;"></ion-icon>
+    </ion-buttons>
     <ion-title>
       Timeline
     </ion-title>
@@ -19,7 +22,7 @@
     </ion-toolbar>
   </ion-header>
   
-  <ion-list>
+  <ion-list #listComp>
     <app-message *ngFor="let post of posts" [post]="post"></app-message>
   </ion-list>
 

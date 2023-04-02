@@ -1,6 +1,20 @@
 ion-toolbar {
-    --background: #f2f2f2;
+    ion-icon {
+        animation: pulse infinite 1s ease-in-out;
+
+        @keyframes pulse {
+            0%{transform: scale(1);}
+            50%{transform: scale(0.8);}
+            100%{transform: scale(1);}
+        }
+    }
+    
 }
+
+ion-buttons {
+    padding-left: 8px;
+}
+
 
 app-add {
     position: sticky;
@@ -16,6 +30,17 @@ ion-list {
     align-items: center;
     max-width: 400px;
     margin: 0 auto;
+
+
+}
+
+.bump-in-anim {
+    animation: 1s bump-in ease-in-out;
+    @keyframes bump-in {
+        0%{transform: translateY(-140px);}
+        80%{transform: translateY(20px);}
+        100%{transform: translateY(0px);}
+    }
 }
 
 app-message {
@@ -27,7 +52,7 @@ app-message {
     left: calc(50% - 600px);
     top: 74px;
     border: 2px gray;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
+    box-shadow: inset 3px 2px 4px 0px #000, inset -1px -2px 4px 0px #000;
     border-radius: 2%;
     padding: 48px;
 

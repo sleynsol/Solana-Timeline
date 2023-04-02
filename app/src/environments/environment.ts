@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  rpc_endpoint: "https://app.solana-timeline.com/rpc"
+  rpc_endpoint: "http://127.0.0.1:8899",
+  websocket_url: "ws://localhost:3000",
+  backend_url: "http://localhost:3000"
 };
 
 

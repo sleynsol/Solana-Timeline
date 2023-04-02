@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
@@ -15,7 +16,8 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    TabsPageModule
+    TabsPageModule,
+    HttpClientModule
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

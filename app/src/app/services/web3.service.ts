@@ -10,7 +10,6 @@ import { PROGRAM_ID, PROGRAM_POINTER } from '../constants/constants';
 import * as idl from '../idl/msg3_program.json'
 import { Post } from '../model/Post';
 import { User } from '../model/User';
-import { SolflareWalletAdapter } from '@solana/wallet-adapter-solflare';
 import { PhantomWalletAdapter } from '@solana/wallet-adapter-phantom';
 import { BN } from 'bn.js';
 import { Message } from '../model/Message';
@@ -29,6 +28,7 @@ export class Web3Service {
   isConnectedSubject: BehaviorSubject<boolean> = new BehaviorSubject(false)
   userSubject: BehaviorSubject<User> = new BehaviorSubject(null)
   postSubject: BehaviorSubject<Post[]> = new BehaviorSubject(null)
+  webSocketConnectionSubject: BehaviorSubject<boolean> = new BehaviorSubject(null)
 
   globalStats: GlobalStats
   globalCategory: Category
@@ -51,6 +51,7 @@ export class Web3Service {
     this.listenToLoadedPosts()
     this.listenToConnection()
     await this.loadLatestPosts()
+    this.listenToNewPosts()
   }
 
   initProgram() {
@@ -284,8 +285,8 @@ export class Web3Service {
     let msg = await this.program.account.post.fetch(postPDA)
 
     let newPost = new Post(postPDA, category, msg, false);
-    this.posts.unshift(newPost)
-    this.postSubject.next(this.posts)
+    //this.posts.unshift(newPost)
+    //this.postSubject.next(this.posts)
   }
 
   async likePost(post: Post) {
@@ -332,6 +333,10 @@ export class Web3Service {
 
   getPostSubject$(): BehaviorSubject<Post[]> {
     return this.postSubject;
+  }
+
+  getWebSocketConnectionSubject$(): BehaviorSubject<boolean> {
+    return this.webSocketConnectionSubject;
   }
 
   listenToLoadedPosts() {
@@ -381,6 +386,30 @@ export class Web3Service {
 
     return true;
 
+  }
+
+  listenToNewPosts() {
+    const socket = new WebSocket(environment.websocket_url)
+    this.webSocketConnectionSubject.next(true)
+
+    socket.onmessage = (msg) => {
+      let rawNewPost = JSON.parse(msg.data)
+    
+      rawNewPost.message.comments = new BN(rawNewPost.message.comments)
+      rawNewPost.message.likes = new BN(rawNewPost.message.likes)
+      rawNewPost.message.lastCommentPda = new PublicKey(rawNewPost.message.lastCommentPda)
+      rawNewPost.message.writer = new PublicKey(rawNewPost.message.writer)
+      rawNewPost.message.predecessor = new PublicKey(rawNewPost.message.predecessor)
+
+      rawNewPost.pda = new PublicKey(rawNewPost.pda)
+
+      if(!this.posts.map(post => post.pda.toString()).includes(rawNewPost.pda.toString())) {
+        this.posts.unshift(rawNewPost)
+        this.postSubject.next(this.posts)
+      }
+
+
+    }
   }
 
 }

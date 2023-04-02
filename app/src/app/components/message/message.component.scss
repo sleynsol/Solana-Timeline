@@ -4,6 +4,14 @@ ion-card {
   grid-template-columns: 20% 80%;
   min-height: 120px;
   max-width: 560px;
+  box-shadow: inset 3px 2px 4px 0px #000, inset -1px -2px 4px 0px #000;
+
+}
+
+ion-button {
+ // box-shadow: 1px 1px #0f0f0f, -1px -1px #3c3838;
+  border-radius: 50%;
+  width: 90%;
 }
 
 .header {
@@ -26,8 +34,8 @@ ion-card {
   align-items: flex-start;
 
   .writer {
+    color: white;
     font-size: 1rem;
-    color: black;
     padding-bottom: 8px;
     cursor: pointer;
   }

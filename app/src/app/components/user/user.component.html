@@ -23,6 +23,11 @@
             <ion-icon name="albums-outline"></ion-icon>
             {{user.postCount}}
           </span>
+          <div class="profile-button-container">
+            <ion-button *ngIf="!isConnectedUser()" (click)="startNewChat()">
+              <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+            </ion-button>
+          </div>
         </div>
 
         <ion-list>
