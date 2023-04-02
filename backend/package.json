@@ -1,0 +1,42 @@
+{
+  "name": "solana-timeline-backend",
+  "version": "1.0.0",
+  "description": "The backend ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack && node ./dist/main.js",
+    "start-prod": "node main.js",
+    "build": "webpack"
+  },
+  "author": "Sleyn",
+  "license": "ISC",
+  "dependencies": {
+    "@bonfida/spl-name-service": "^0.1.64",
+    "@dialectlabs/blockchain-sdk-solana": "^1.0.1",
+    "@dialectlabs/sdk": "^1.5.2",
+    "@project-serum/anchor": "^0.26.0",
+    "@solana/web3.js": "^1.73.0",
+    "axios": "^1.2.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "lodash": "^4.17.21",
+    "socket.io": "^4.6.1",
+    "tweetnacl": "^1.0.3",
+    "webpack-node-externals": "^3.0.0",
+    "ws": "^8.12.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
+    "@types/express": "^4.17.15",
+    "babel-loader": "^9.1.2",
+    "copy-webpack-plugin": "^11.0.0",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.4",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  }
+}
